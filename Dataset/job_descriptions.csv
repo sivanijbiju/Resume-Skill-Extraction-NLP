@@ -1,1 +1,4 @@
-
+jd_id,job_title,job_text
+JD001,Machine Learning Engineer,"We are looking for a Machine Learning Engineer with strong skills in Python, TensorFlow or PyTorch, and Deep Learning. Experience with Natural Language Processing, text classification, and Transformer models such as BERT is required. Knowledge of Statistics, Docker, and cloud platforms like AWS is a plus. The candidate should be comfortable working with Machine Learning pipelines and data preprocessing."
+JD002,Backend Software Engineer,"Seeking a Backend Software Engineer with experience in Java, Spring Boot, and Microservices architecture. Must be proficient in SQL and REST API development. Experience with Docker, Kubernetes, and CI/CD pipelines is essential. Familiarity with Git and Agile methodology is required."
+JD003,NLP Engineer,"Hiring an NLP Engineer skilled in Python, spaCy, NLTK, and Hugging Face Transformers. Experience building chatbots, text summarization, or question answering systems using BERT or LSTM is highly desirable. Strong understanding of TF-IDF, Cosine Similarity, and Word Embeddings required. Experience deploying models using Flask or similar frameworks is a plus."
