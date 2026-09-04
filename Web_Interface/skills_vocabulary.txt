@@ -1,0 +1,7 @@
+python, java, javascript, typescript, sql, mysql, postgresql, html, css, react, redux,
+node.js, django, spring boot, flask, docker, kubernetes, jenkins, git, aws, ci/cd,
+machine learning, deep learning, tensorflow, pytorch, scikit-learn, pandas, numpy,
+natural language processing, nlp, spacy, nltk, transformers, bert, lstm, rnn,
+tf-idf, cosine similarity, word embeddings, named entity recognition,
+statistics, linear algebra, data visualization, matplotlib, seaborn, power bi, tableau,
+excel, rest api, microservices, agile, machine learning pipelines, a/b testing
