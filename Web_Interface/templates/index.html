@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Analyzer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page">
+
+<header class="hero">
+<div class="icon">🤖</div>
+
+<h1>AI Resume Analyzer</h1>
+
+<p>Resume Skill Extraction &amp; Job Matching System</p>
+
+<span>NLP POWERED</span>
+</header>
+
+
+<main class="card">
+
+<form method="POST" enctype="multipart/form-data">
+
+<label>📄 Upload Resume PDF</label>
+
+<div class="upload">
+<input name="resume" type="file" accept=".pdf" required>
+</div>
+
+
+<label>💼 Job Title</label>
+
+<input
+name="job_title"
+type="text"
+placeholder="Example: Machine Learning Engineer"
+value="{{ request.form.get('job_title','') }}"
+required
+>
+
+
+<label>📝 Job Description</label>
+
+<textarea
+name="job_description"
+placeholder="Enter the job description and required skills..."
+required
+>{{ request.form.get('job_description','') }}</textarea>
+
+
+<button type="submit">
+🔍 Analyze Resume
+</button>
+
+</form>
+
+
+{% if error %}
+
+<div class="error">
+⚠️ {{ error }}
+</div>
+
+{% endif %}
+
+
+{% if result %}
+
+<section class="results">
+
+<div class="heading">
+
+<div>
+
+<small>ANALYSIS COMPLETE</small>
+
+<h2>{{ result.title }}</h2>
+
+<p>📎 {{ result.filename }}</p>
+
+</div>
+
+<div class="ok">✓</div>
+
+</div>
+
+
+<div class="stats">
+
+<div>
+<b>{{ result.score }}%</b>
+<small>Match Score</small>
+</div>
+
+<div>
+<b>{{ result.coverage }}%</b>
+<small>Skill Coverage</small>
+</div>
+
+<div>
+<b>{{ result.matched|length }}</b>
+<small>Skills Matched</small>
+</div>
+
+<div>
+<b>{{ result.resume_skills|length }}</b>
+<small>Skills Extracted</small>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="box">
+
+<h3>✓ Matched Skills</h3>
+
+<div class="chips">
+
+{% for x in result.matched %}
+
+<span class="match">
+{{ x }}
+</span>
+
+{% endfor %}
+
+</div>
+
+
+{% if not result.matched %}
+
+<p>No matching skills found.</p>
+
+{% endif %}
+
+</div>
+
+
+
+<div class="box">
+
+<h3>✗ Missing Skills</h3>
+
+<div class="chips">
+
+{% for x in result.missing %}
+
+<span class="missing">
+{{ x }}
+</span>
+
+{% endfor %}
+
+</div>
+
+
+{% if not result.missing %}
+
+<p>No missing skills detected.</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+
+
+<div class="box">
+
+<h3>🧠 Extracted Resume Skills</h3>
+
+<div class="chips">
+
+{% for x in result.resume_skills %}
+
+<span class="neutral">
+{{ x }}
+</span>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+{% endif %}
+
+</main>
+
+
+<footer>
+
+Resume Skill Extraction &amp; Job Matching System • NLP Mini Project
+
+</footer>
+
+</div>
+
+</body>
+</html>
